@@ -18,8 +18,11 @@ from api import chat, booking, voice, contact, upload, admin
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Initialize DB and RAG index on startup."""
-    create_tables()
-    # Attempt to load existing RAG index if documents exist
+    try:
+        create_tables()
+        print("[DB] Tables created/verified.")
+    except Exception as e:
+        print(f"[DB] Warning — could not create tables: {e}")
     try:
         from rag.indexer import build_index_if_needed
         build_index_if_needed()
@@ -52,6 +55,11 @@ app.include_router(voice.router,   prefix="/api/voice",   tags=["Voice"])
 app.include_router(contact.router, prefix="/api/contact", tags=["Contact"])
 app.include_router(upload.router,  prefix="/api/upload",  tags=["Upload"])
 app.include_router(admin.router,   prefix="/admin",        tags=["Admin"])
+
+# ── Health check (Railway uses this) ─────────────────────────────────────────
+@app.get("/health", include_in_schema=False)
+async def health():
+    return {"status": "ok"}
 
 # ── Static Files ─────────────────────────────────────────────────────────────
 app.mount("/static", StaticFiles(directory="static"), name="static")
