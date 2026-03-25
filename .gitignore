@@ -1,0 +1,32 @@
+# Secrets — NEVER commit these
+.env
+*.env
+
+# Database (contains patient data — keep local only)
+*.db
+*.sqlite
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# RAG index (rebuilt on startup)
+rag/index/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avishka Pathology — Precision Diagnostics at Prices You Can Afford</title>
+  <meta name="description" content="Avishka Pathology Lab & ECG, Azamgarh. Fully ultramodern computerized lab. Blood tests, thyroid, ECG, vitamins and more. Founded by Dr. Aman Yadav (Vikas)." />
+  <link rel="icon" type="image/png" href="/static/assets/logo.png" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+</head>
+<body>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <!-- Logo -->
+    <a href="#" class="nav-logo" onclick="showPage('home')">
+      <img src="/static/assets/logo.png" alt="Avishka Pathology" class="nav-logo-img" />
+      <div class="nav-logo-text">
+        <span class="name">Avishka Pathology</span>
+        <span class="sub">Pathology Lab &amp; E.C.G.</span>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li><a href="#" class="active" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('services')">Services</a></li>
+      <li><a href="#" onclick="showPage('about')">About</a></li>
+      <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+    </ul>
+
+    <!-- Actions -->
+    <div class="nav-actions">
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" id="themeBtn">🌙</button>
+      <button class="nav-book" onclick="showPage('booking')">📅 Book Test</button>
+      <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="showPage('home');toggleMobileMenu()">🏠 Home</a>
+  <a href="#" onclick="showPage('services');toggleMobileMenu()">🔬 Services</a>
+  <a href="#" onclick="showPage('about');toggleMobileMenu()">👨‍⚕️ About</a>
+  <a href="#" onclick="showPage('contact');toggleMobileMenu()">📞 Contact</a>
+  <a href="#" class="mobile-book" onclick="showPage('booking');toggleMobileMenu()">📅 Book Appointment</a>
+</div>
+
+<!-- ═══════════════════ HOME PAGE ═══════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Left -->
+        <div class="hero-left">
+          <div class="hero-badge">
+            <span class="dot"></span>
+            Fully Ultramodern Computerized Lab
+          </div>
+
+          <h1 class="hero-title">
+            <span style="font-size:0.55em; font-weight:600; color:rgba(255,255,255,0.65); letter-spacing:0;">Precision Diagnostics,</span>
+            <span class="highlight">Affordable</span>
+            <span class="brand">AVISHKA<br>PATHOLOGY</span>
+          </h1>
+
+          <p class="hero-sub">
+            Your health deserves the best — at prices you can actually afford.
+            Trusted by thousands in Azamgarh &amp; beyond.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="showPage('booking')">
+              📅 Book a Test
+            </button>
+            <button class="btn btn-outline" onclick="openChat()">
+              🤖 Talk to Dr. Avi (AI)
+            </button>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num"><span id="cnt1">0</span>+</span>
+              <span class="stat-label">Patients Served</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num"><span id="cnt2">0</span></span>
+              <span class="stat-label">Tests Available</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num"><span id="cnt3">0</span>+</span>
+              <span class="stat-label">Years of Trust</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">Same</span>
+              <span class="stat-label">Day Reports</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right — Founder Card -->
+        <div class="hero-right">
+          <div class="founder-card">
+            <div class="founder-avatar">
+              <img src="/static/assets/dr_aman.png" alt="Dr. Aman Yadav (Vikas)" />
+            </div>
+            <div class="founder-name">Dr. Aman Yadav (Vikas)</div>
+            <div class="founder-title">Founder &amp; Chief Pathologist</div>
+            <div class="founder-desc">
+              Dedicated to bringing world-class pathology diagnostics
+              to Azamgarh at truly affordable prices — because
+              <em>health is a right, not a privilege.</em>
+            </div>
+            <div class="founder-badges">
+              <span class="f-badge">✅ NABL Accredited</span>
+              <span class="f-badge">🏠 Home Collection</span>
+              <span class="f-badge">🤖 AI-Powered</span>
+              <span class="f-badge">⚡ Same Day Reports</span>
+            </div>
+          </div>
+
+          <div class="lab-info-card">
+            <div class="lab-info-row">
+              <span class="icon">📍</span>
+              <span>Mahuja Modh, Martinganj, <strong>Azamgarh, U.P.</strong></span>
+            </div>
+            <div class="lab-info-row">
+              <span class="icon">📞</span>
+              <strong><a href="tel:7355230710" style="color:inherit">7355230710</a></strong>
+            </div>
+            <div class="lab-info-row">
+              <span class="icon">🕐</span>
+              <span>Mon–Sun <strong>7AM – 8PM</strong> (All 7 Days)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <span class="scroll-arrow">↓</span>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section" style="background:var(--bg-alt);">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:0;">
+        <div class="tag">✨ Why Choose Us</div>
+        <h2 class="section-title" style="margin-top:16px;">
+          Healthcare You Can <span>Trust &amp; Afford</span>
+        </h2>
+        <p class="section-subtitle" style="margin:0 auto;">
+          We combine cutting-edge AI technology with compassionate care
+          to deliver accurate diagnostics at prices that don't hurt your pocket.
+        </p>
+      </div>
+      <div class="features-grid reveal">
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <div class="feature-title">Lowest Prices</div>
+          <div class="feature-desc">Tests starting at just ₹80. No hidden charges. Transparent pricing — always.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-title">Same Day Reports</div>
+          <div class="feature-desc">Most reports delivered the same day. No waiting, no anxiety — just fast answers.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <div class="feature-title">AI-Powered</div>
+          <div class="feature-desc">Our AI assistant Dr. Avi helps you choose the right tests and guides your health journey 24/7.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔬</div>
+          <div class="feature-title">Certified Lab</div>
+          <div class="feature-desc">Fully ultramodern computerized equipment. Precision-calibrated for reliable, accurate results.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Preview -->
+  <section class="section">
+    <div class="container">
+      <div class="services-header">
+        <div>
+          <div class="tag">🔬 Our Tests</div>
+          <h2 class="section-title" style="margin-top:12px;">Popular <span>Diagnostic Tests</span></h2>
+          <p class="section-subtitle">Comprehensive pathology tests — accurate, fast, and affordable.</p>
+        </div>
+        <button class="btn btn-ghost" onclick="showPage('services')">View All Tests →</button>
+      </div>
+      <div class="tests-grid reveal" id="home-tests-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" style="background:var(--bg-alt);">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:0;">
+        <div class="tag">💬 Patient Stories</div>
+        <h2 class="section-title" style="margin-top:16px;">What Our <span>Patients Say</span></h2>
+      </div>
+      <div class="testimonials-grid reveal">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Got my thyroid test done in the morning and had the report by afternoon. The staff was very helpful and the price was much lower than other labs in Azamgarh."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">RK</div>
+            <div>
+              <div class="author-name">Ramesh Kumar</div>
+              <div class="author-loc">📍 Martinganj, Azamgarh</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"The AI chatbot helped me understand which tests I needed for my symptoms. Booked the appointment online and everything was smooth. Highly recommend!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">PS</div>
+            <div>
+              <div class="author-name">Priya Singh</div>
+              <div class="author-loc">📍 Azamgarh City</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Best pathology lab in the area. Dr. Aman Yadav is very knowledgeable and the team is professional. CBC and sugar test at the most affordable price!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AM</div>
+            <div>
+              <div class="author-name">Abdul Majid</div>
+              <div class="author-loc">📍 Mahuja, Azamgarh</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2>Ready for Your Health Checkup?</h2>
+        <p>Book now and get your results the same day. Our team will call you to confirm.</p>
+        <div class="cta-actions">
+          <button class="btn-white" onclick="showPage('booking')">📅 Book a Test Now</button>
+          <a href="tel:7355230710" class="btn btn-outline">📞 Call 7355230710</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+
+<!-- ═══════════════════ SERVICES PAGE ═══════════════════ -->
+<div id="page-services" class="page" style="padding-top:72px;">
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:40px;">
+        <div class="tag">🔬 Complete Test Menu</div>
+        <h2 class="section-title" style="margin-top:16px;">All <span>Diagnostic Services</span></h2>
+        <p class="section-subtitle" style="margin:0 auto;">
+          From routine blood work to advanced organ function panels — all under one roof.
+        </p>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="category-filter" id="catFilter">
+        <button class="cat-btn active" onclick="filterTests('all',this)">All Tests</button>
+        <button class="cat-btn" onclick="filterTests('Blood',this)">🩸 Blood</button>
+        <button class="cat-btn" onclick="filterTests('Diabetes',this)">💉 Diabetes</button>
+        <button class="cat-btn" onclick="filterTests('Heart Health',this)">❤️ Heart</button>
+        <button class="cat-btn" onclick="filterTests('Thyroid',this)">🦋 Thyroid</button>
+        <button class="cat-btn" onclick="filterTests('Organ Function',this)">🏥 Organ</button>
+        <button class="cat-btn" onclick="filterTests('Vitamins',this)">☀️ Vitamins</button>
+        <button class="cat-btn" onclick="filterTests('Urine',this)">🔬 Urine</button>
+      </div>
+
+      <div class="tests-grid" id="services-tests-grid">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Package Banner -->
+      <div style="background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:var(--radius-lg);padding:40px;margin-top:48px;color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;">
+        <div>
+          <h3 style="font-family:var(--font-head);font-size:1.4rem;font-weight:800;margin-bottom:8px;">
+            💊 Full Body Health Package
+          </h3>
+          <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;max-width:480px;">
+            CBC + Blood Sugar + Lipid Profile + LFT + KFT + Thyroid + Vitamin D + B12 + Urine — everything in one visit.
+          </p>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:line-through;">₹3,530</div>
+          <div style="font-family:var(--font-head);font-size:2rem;font-weight:900;color:var(--gold);">₹1,999</div>
+          <button class="btn btn-primary" style="margin-top:8px;" onclick="showPage('booking')">Book Package</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ═══════════════════ ABOUT PAGE ═══════════════════ -->
+<div id="page-about" class="page" style="padding-top:72px;">
+  <section class="section">
+    <div class="container">
+
+      <div class="about-grid">
+        <!-- Image -->
+        <div class="about-img-box">
+          <div class="about-img-main">
+            <img src="/static/assets/dr_aman.png" alt="Dr. Aman Yadav (Vikas)" style="width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:inherit;" />
+          </div>
+          <div class="about-img-badge">
+            <span class="num">2+</span>
+            <span class="lbl">Years of<br>Excellence</span>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="about-content">
+          <div class="tag">🏥 About Us</div>
+          <h2 class="section-title" style="margin-top:16px;">
+            Founded on <span>Trust &amp; Affordability</span>
+          </h2>
+          <p>
+            Avishka Pathology was founded by <strong>Dr. Aman Yadav (Vikas)</strong> with a clear
+            mission — to provide world-class pathology diagnostics to every family in Azamgarh,
+            regardless of their economic background.
+          </p>
+          <p>
+            Located at Mahuja Modh, Martinganj, Azamgarh, our fully ultramodern computerized lab
+            offers a comprehensive range of blood tests, urine analysis, ECG, and specialized
+            panels — all delivered with precision and care.
+          </p>
+
+          <div class="values-list">
+            <div class="value-item">
+              <div class="value-icon">💰</div>
+              <div class="value-text">
+                <strong>Affordable Healthcare</strong>
+                <span>We believe quality diagnostics should be accessible to everyone. Tests from just ₹80.</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🎯</div>
+              <div class="value-text">
+                <strong>Accuracy First</strong>
+                <span>Fully computerized equipment calibrated for precision results you can trust.</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🤝</div>
+              <div class="value-text">
+                <strong>Patient-Centered Care</strong>
+                <span>Every patient is treated with dignity, empathy, and professional courtesy.</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" onclick="showPage('booking')">📅 Book Your Test Today</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Founder Highlight — Full Width Premium Banner -->
+  <section class="founder-section">
+    <div class="container">
+      <div class="founder-banner reveal">
+
+        <!-- Photo Column -->
+        <div class="founder-photo-col">
+          <div class="founder-photo-frame">
+            <img src="/static/assets/dr_aman.png" alt="Dr. Aman Yadav (Vikas)" class="founder-photo" />
+            <div class="founder-photo-badge">
+              <span class="badge-year">Est. 2024</span>
+            </div>
+          </div>
+          <div class="founder-photo-glow"></div>
+        </div>
+
+        <!-- Content Column -->
+        <div class="founder-content-col">
+          <div class="tag">👨‍⚕️ Meet the Founder</div>
+          <h2 class="founder-heading">
+            Dr. Aman Yadav<br><span class="founder-aka">(Vikas)</span>
+          </h2>
+          <p class="founder-role-label">Chief Pathologist &amp; Founder, Avishka Pathology</p>
+
+          <p class="founder-bio">
+            Dr. Aman Yadav (Vikas) built Avishka Pathology from the ground up with a singular
+            vision — to bring world-class diagnostic precision to every family in Azamgarh,
+            at prices that never compromise on quality. His hands-on approach and deep
+            expertise in clinical pathology have made the lab the most trusted name in Martinganj.
+          </p>
+          <p class="founder-bio">
+            Under his leadership, the lab became fully computerized, NABL accredited, and
+            introduced AI-powered assistance — making it not just a pathology lab, but a
+            complete health partner for the community.
+          </p>
+
+          <div class="founder-credentials">
+            <div class="credential-item">
+              <div class="credential-icon">✅</div>
+              <div>
+                <strong>NABL Accredited</strong>
+                <span>Nationally recognized quality standards</span>
+              </div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-icon">🔬</div>
+              <div>
+                <strong>Fully Computerized Lab</strong>
+                <span>Precision-calibrated modern equipment</span>
+              </div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-icon">🏠</div>
+              <div>
+                <strong>Home Collection</strong>
+                <span>Sample pickup at your doorstep</span>
+              </div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-icon">⚡</div>
+              <div>
+                <strong>Same Day Reports</strong>
+                <span>Fast results you can trust</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="founder-cta-row">
+            <button class="btn btn-primary" onclick="showPage('booking')">📅 Book with Us</button>
+            <a href="tel:7355230710" class="btn btn-outline">📞 7355230710</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;" class="reveal">
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 16px;">
+          <div style="font-family:var(--font-head);font-size:2.5rem;font-weight:900;color:var(--crimson);">2000+</div>
+          <div style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">Patients Served</div>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 16px;">
+          <div style="font-family:var(--font-head);font-size:2.5rem;font-weight:900;color:var(--crimson);">13+</div>
+          <div style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">Tests Available</div>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 16px;">
+          <div style="font-family:var(--font-head);font-size:2.5rem;font-weight:900;color:var(--crimson);">2+</div>
+          <div style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">Years of Excellence</div>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 16px;">
+          <div style="font-family:var(--font-head);font-size:2.5rem;font-weight:900;color:var(--crimson);">100%</div>
+          <div style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">Computerized Reports</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ═══════════════════ CONTACT PAGE ═══════════════════ -->
+<div id="page-contact" class="page" style="padding-top:72px;">
+  <section class="section">
+    <div class="container">
+      <div style="margin-bottom:48px;">
+        <div class="tag">📞 Get in Touch</div>
+        <h2 class="section-title" style="margin-top:16px;">Contact <span>Avishka Pathology</span></h2>
+        <p class="section-subtitle">Have questions? Need help booking? Reach out — we're here for you.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Info Cards -->
+        <div class="contact-info">
+          <div class="info-card">
+            <div class="info-icon">📍</div>
+            <div class="info-text">
+              <strong>Our Location</strong>
+              <span>Mahuja Modh, Martinganj<br>Azamgarh, Uttar Pradesh</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📞</div>
+            <div class="info-text">
+              <strong>Phone / WhatsApp</strong>
+              <span><a href="tel:7355230710">7355230710</a></span>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📧</div>
+            <div class="info-text">
+              <strong>Email</strong>
+              <span><a href="mailto:avishka.pathology@outlook.com">avishka.pathology@outlook.com</a></span>
+            </div>
+          </div>
+
+          <!-- Working Hours -->
+          <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;">
+            <h4 style="font-weight:700;color:var(--text);margin-bottom:16px;">🕐 Working Hours</h4>
+            <div class="hours-grid">
+              <div class="hours-item" style="grid-column:1/-1;background:rgba(0,180,216,0.06);border-color:rgba(0,180,216,0.2);">
+                <div class="hours-day" style="color:var(--teal);">Mon – Sun (All 7 Days)</div>
+                <div class="hours-time" style="font-weight:700;">7:00 AM – 8:00 PM</div>
+              </div>
+              <div class="hours-item">
+                <div class="hours-day">🏠 Home Collection</div>
+                <div class="hours-time">Available — Call Us</div>
+              </div>
+              <div class="hours-item" style="background:rgba(192,39,45,0.08);border-color:rgba(192,39,45,0.2);">
+                <div class="hours-day" style="color:var(--crimson);">Emergency</div>
+                <div class="hours-time">Call 7355230710</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Google Map Placeholder -->
+          <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;height:200px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:var(--text-muted);">
+            <div style="font-size:2.5rem;">🗺️</div>
+            <div style="font-size:0.85rem;text-align:center;">
+              <strong style="color:var(--text);">Mahuja Modh, Martinganj</strong><br>
+              Azamgarh, U.P.
+            </div>
+            <a href="https://maps.google.com/?q=Martinganj+Azamgarh+UP" target="_blank" class="btn btn-ghost" style="font-size:0.8rem;padding:8px 16px;">Open in Maps →</a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrap">
+          <div class="form-title">Send Us a Message</div>
+          <form id="contactForm" onsubmit="submitContact(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Full Name *</label>
+                <input class="form-input" type="text" id="cName" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input class="form-input" type="tel" id="cPhone" placeholder="10-digit mobile" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input class="form-input" type="email" id="cEmail" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Subject *</label>
+              <select class="form-select form-input" id="cSubject" required>
+                <option value="">Select a subject</option>
+                <option>Test Inquiry</option>
+                <option>Appointment Query</option>
+                <option>Report Issue</option>
+                <option>Pricing Information</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Message *</label>
+              <textarea class="form-textarea" id="cMessage" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;" id="contactSubmitBtn">
+              📤 Send Message
+            </button>
+            <div class="form-success" id="contactSuccess">
+              ✅ Message sent! We'll get back to you within 24 hours.
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+
+<!-- ═══════════════════ BOOKING PAGE ═══════════════════ -->
+<div id="page-booking" class="page" style="padding-top:72px;">
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div class="tag">📅 Book Appointment</div>
+        <h2 class="section-title" style="margin-top:16px;">Book Your <span>Test Appointment</span></h2>
+        <p class="section-subtitle" style="margin:0 auto;">
+          Select your tests, pick a slot — we'll call you to confirm within 2 hours.
+        </p>
+      </div>
+
+      <!-- Steps -->
+      <div class="booking-steps" id="bookingSteps">
+        <div class="step-indicator active" id="step-ind-1">
+          <div class="step-circle">1</div>
+          <div class="step-label">Your Details</div>
+        </div>
+        <div class="step-indicator" id="step-ind-2">
+          <div class="step-circle">2</div>
+          <div class="step-label">Symptoms</div>
+        </div>
+        <div class="step-indicator" id="step-ind-3">
+          <div class="step-circle">3</div>
+          <div class="step-label">Select Tests</div>
+        </div>
+        <div class="step-indicator" id="step-ind-4">
+          <div class="step-circle">4</div>
+          <div class="step-label">Pick Slot</div>
+        </div>
+        <div class="step-indicator" id="step-ind-5">
+          <div class="step-circle">5</div>
+          <div class="step-label">Confirmed</div>
+        </div>
+      </div>
+
+      <!-- Step 1: Patient Details -->
+      <div class="booking-panel active" id="bpanel-1">
+        <div class="panel-title">Your Details</div>
+        <div class="panel-subtitle">Please fill in your basic information.</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input class="form-input" id="bName" type="text" placeholder="Patient's full name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Age</label>
+            <input class="form-input" id="bAge" type="number" placeholder="Age in years" min="1" max="120" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Gender</label>
+            <select class="form-select form-input" id="bGender">
+              <option value="">Select gender</option>
+              <option>Male</option><option>Female</option><option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input class="form-input" id="bPhone" type="tel" placeholder="10-digit mobile" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email (optional)</label>
+          <input class="form-input" id="bEmail" type="email" placeholder="For digital report" />
+        </div>
+        <div class="panel-actions">
+          <div></div>
+          <button class="btn btn-primary" onclick="bookingStep(2)">Next: Symptoms →</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Symptoms -->
+      <div class="booking-panel" id="bpanel-2">
+        <div class="panel-title">What are your symptoms?</div>
+        <div class="panel-subtitle">Select all that apply — we'll recommend the right tests for you.</div>
+        <div class="symptom-chips" id="symptomChips">
+          <div class="symptom-chip" onclick="toggleSymptom(this,'fatigue')">😴 Fatigue / Tiredness</div>
+          <div class="symptom-chip" onclick="toggleSymptom(this,'fever')">🌡️ Fever</div>
+          <div class="symptom-chip" onclick="toggleSymptom(this,'diabetes')">💉 Diabetes / High Sugar</div>
+          <div class="symptom-chip" onclick="toggleSymptom(this,'thyroid')">🦋 Thyroid Issues</div>
+          <div class="symptom-chip" onclick="toggleSymptom(this,'chest pain')">❤️ Chest Pain</div>
+          <div class="symptom-chip" onclick="toggleSymptom(this,'cholesterol')">🫀 Cholesterol Concern</div>
+          <div class="symptom-chip" onclick="toggleSymptom(this,'kidney')">🫁 Kidney Issues</div>
+          <div class="symptom-chip" onclick="toggleSymptom(this,'liver')">🏥 Liver Issues</div>
+          <div class="symptom-chip" onclick="toggleSymptom(this,'weight gain')">⚖️ Weight Gain</div>
+          <div class="symptom-chip" onclick="toggleSymptom(this,'hair fall')">💇 Hair Fall</div>
+          <div class="symptom-chip" onclick="toggleSymptom(this,'anemia')">🩸 Anemia</div>
+          <div class="symptom-chip" onclick="toggleSymptom(this,'bone pain')">🦴 Bone Pain / Weakness</div>
+          <div class="symptom-chip" onclick="toggleSymptom(this,'routine checkup')">✅ Routine Checkup</div>
+          <div class="symptom-chip" onclick="toggleSymptom(this,'full body')">🏃 Full Body Checkup</div>
+        </div>
+        <div class="form-group" style="margin-top:16px;">
+          <label class="form-label">Additional notes (optional)</label>
+          <input class="form-input" id="bSymptomText" placeholder="Describe any other symptoms..." />
+        </div>
+        <div class="panel-actions">
+          <button class="btn btn-ghost" onclick="bookingStep(1)">← Back</button>
+          <button class="btn btn-primary" onclick="bookingStep(3)">Next: Choose Tests →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Select Tests -->
+      <div class="booking-panel" id="bpanel-3">
+        <div class="panel-title">Select Your Tests</div>
+        <div class="panel-subtitle">Recommended tests are pre-selected based on your symptoms. You can add or remove any.</div>
+        <div class="test-select-grid" id="testSelectGrid">
+          <!-- Populated by JS -->
+        </div>
+        <div style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-top:16px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-weight:600;color:var(--text);">Selected Total:</span>
+          <span style="font-family:var(--font-head);font-size:1.4rem;font-weight:900;color:var(--crimson);" id="selTotal">₹0</span>
+        </div>
+        <div class="panel-actions">
+          <button class="btn btn-ghost" onclick="bookingStep(2)">← Back</button>
+          <button class="btn btn-primary" onclick="bookingStep(4)">Next: Pick a Slot →</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Slot Selection -->
+      <div class="booking-panel" id="bpanel-4">
+        <div class="panel-title">Choose Your Appointment Slot</div>
+        <div class="panel-subtitle">Select a convenient time. Our team will call to confirm your booking.</div>
+        <div class="slots-grid" id="slotsGrid">
+          <!-- Populated by JS -->
+        </div>
+        <div class="form-group" style="margin-top:16px;">
+          <label class="form-label">Notes for the lab (optional)</label>
+          <input class="form-input" id="bNotes" placeholder="e.g. fasting already done, prefer morning..." />
+        </div>
+
+        <!-- Summary -->
+        <div class="booking-summary" id="bookingSummary" style="display:none;">
+          <div class="summary-row">
+            <span class="label">Patient</span>
+            <span class="value" id="sumName">—</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Phone</span>
+            <span class="value" id="sumPhone">—</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Tests</span>
+            <span class="value" id="sumTests">—</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Appointment</span>
+            <span class="value" id="sumSlot">—</span>
+          </div>
+          <div class="summary-row summary-total">
+            <span class="label">Total Amount</span>
+            <span class="value" id="sumTotal">₹0</span>
+          </div>
+        </div>
+
+        <div class="panel-actions">
+          <button class="btn btn-ghost" onclick="bookingStep(3)">← Back</button>
+          <button class="btn btn-primary" onclick="submitBooking()" id="bookingSubmitBtn">
+            ✅ Confirm Appointment
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 5: Confirmation + Payment -->
+      <div class="booking-panel" id="bpanel-5">
+        <div class="booking-confirmed">
+          <div class="confirmed-icon">✅</div>
+          <h3 style="font-family:var(--font-head);font-size:1.6rem;font-weight:800;color:var(--text);">Appointment Requested!</h3>
+          <div class="confirmed-ref" id="confirmedRef">AVP-XXXXXXXX</div>
+          <p class="confirmed-msg" id="confirmedMsg">
+            Your appointment request has been received. Our team will call you within 2 hours to confirm your slot.
+          </p>
+
+          <!-- Payment Recommendation Section -->
+          <div style="margin-top:28px;background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;text-align:left;max-width:500px;margin-left:auto;margin-right:auto;">
+            <div style="font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:4px;text-align:center;">💳 Pay in Advance (Optional)</div>
+            <p style="font-size:0.83rem;color:var(--text-muted);text-align:center;margin-bottom:20px;">You can pay online before your visit, or simply pay cash at the lab.</p>
+
+            <!-- UPI + QR -->
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;">
+              <div style="font-weight:700;color:var(--text);margin-bottom:14px;">⚡ Pay via PhonePe / GPay / UPI</div>
+              <div style="display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap;">
+                <div style="flex-shrink:0;text-align:center;">
+                  <div style="width:110px;height:110px;border:2px solid var(--border);border-radius:10px;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;">
+                    <img src="/static/assets/phonepe_qr.png" alt="PhonePe QR"
+                         style="width:100%;height:100%;object-fit:contain;"
+                         onerror="this.parentElement.innerHTML='<div style=font-size:2.5rem>📱</div>'" />
+                  </div>
+                  <div style="font-size:0.7rem;color:var(--text-muted);margin-top:5px;">Scan to Pay</div>
+                </div>
+                <div style="flex:1;min-width:160px;">
+                  <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:5px;">UPI ID:</div>
+                  <div style="font-family:monospace;font-size:0.95rem;font-weight:700;color:var(--text);background:var(--bg-alt);padding:9px 12px;border-radius:8px;border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:6px;">
+                    <span id="upiIdText">8953475309@ybl</span>
+                    <button onclick="copyUPI()" style="background:var(--teal);color:#fff;border:none;cursor:pointer;font-size:0.72rem;font-weight:700;padding:4px 10px;border-radius:6px;white-space:nowrap;">Copy</button>
+                  </div>
+                  <div style="font-size:0.73rem;color:var(--text-muted);margin-top:6px;">✅ PhonePe · GPay · Paytm · BHIM</div>
+                  <div style="font-size:0.73rem;color:var(--text-muted);margin-top:3px;">👤 AKASH YADAV</div>
+                  <div style="margin-top:12px;">
+                    <div style="font-size:0.78rem;color:var(--text-muted);">Amount to pay:</div>
+                    <div style="font-family:var(--font-head);font-size:1.4rem;font-weight:900;color:var(--crimson);" id="payAmountDisplay">₹0</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:14px;padding:11px;background:rgba(192,39,45,0.05);border:1px solid rgba(192,39,45,0.15);border-radius:10px;font-size:0.79rem;color:var(--text-muted);text-align:center;">
+              💡 Cash payment also accepted at the lab. Advance is optional.
+            </div>
+          </div>
+
+          <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="showPage('home')">🏠 Back to Home</button>
+            <a href="tel:7355230710" class="btn btn-ghost">📞 Call Us</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" onclick="showPage('home')">
+          <svg viewBox="0 0 44 44" width="36" height="36">
+            <polygon points="22,3 42,40 2,40" fill="#C0272D"/>
+            <text x="22" y="34" text-anchor="middle" fill="white" font-family="Poppins,sans-serif" font-weight="900" font-size="18">A</text>
+          </svg>
+          <div class="nav-logo-text">
+            <span class="name" style="color:#fff;">Avishka Pathology</span>
+            <span class="sub">Lab &amp; E.C.G.</span>
+          </div>
+        </a>
+        <p>Precision diagnostics at prices you can afford. Serving Azamgarh with care and accuracy since 2024.</p>
+        <div class="footer-social">
+          <a href="tel:7355230710" class="social-btn" title="Call">📞</a>
+          <a href="mailto:avishka.pathology@outlook.com" class="social-btn" title="Email">📧</a>
+          <a href="https://wa.me/917355230710" class="social-btn" title="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('home')">Home</a></li>
+          <li><a href="#" onclick="showPage('services')">Services &amp; Tests</a></li>
+          <li><a href="#" onclick="showPage('about')">About Us</a></li>
+          <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+          <li><a href="#" onclick="showPage('booking')">Book Appointment</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Popular Tests</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('booking')">Complete Blood Count — ₹150</a></li>
+          <li><a href="#" onclick="showPage('booking')">Thyroid Profile — ₹600</a></li>
+          <li><a href="#" onclick="showPage('booking')">Lipid Profile — ₹350</a></li>
+          <li><a href="#" onclick="showPage('booking')">Blood Sugar — ₹80</a></li>
+          <li><a href="#" onclick="showPage('booking')">ECG — ₹200</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">📍 Mahuja Modh, Martinganj, Azamgarh</a></li>
+          <li><a href="tel:7355230710">📞 7355230710</a></li>
+          <li><a href="mailto:avishka.pathology@outlook.com">📧 avishka.pathology</a></li>
+          <li><a href="#">🕐 Mon–Sun: 7AM–8PM (All 7 Days)</a></li>
+          <li><a href="#">🏠 Home Collection Available</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom container">
+    <span>© 2025 Avishka Pathology. Founded by Dr. Aman Yadav (Vikas).</span>
+    <span>Built with ❤️ for better healthcare in Azamgarh.</span>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════ CHATBOT WIDGET ═══════════════════ -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" title="Talk to Dr. Avi / Close">
+  <span id="chatFabIcon">🤖</span>
+</button>
+
+<div class="chat-widget" id="chatWidget">
+  <div class="chat-header">
+    <div class="chat-avatar">🤖</div>
+    <div class="chat-header-info">
+      <div class="chat-name">Dr. Avi — AI Assistant</div>
+      <div class="chat-status"><span class="status-dot"></span> Online · Avishka Pathology</div>
+    </div>
+    <button class="chat-tts-toggle" id="ttsToggleBtn" onclick="toggleTTS()" title="Voice ON — click to mute" style="opacity:1;">🔊</button>
+    <button class="chat-close" onclick="closeChat()" title="Close chat" style="font-size:1.1rem;font-weight:700;">✕</button>
+  </div>
+
+  <div class="chat-messages" id="chatMessages">
+    <!-- Messages rendered by JS -->
+  </div>
+
+  <div class="typing-bubble" id="typingBubble">
+    <div class="typing-dots"><span></span><span></span><span></span></div>
+  </div>
+
+  <div class="chat-footer">
+    <div class="chat-quick" id="chatQuick">
+      <button class="quick-btn" onclick="sendQuick('Test prices')">💰 Test Prices</button>
+      <button class="quick-btn" onclick="sendQuick('Opening hours')">🕐 Timings</button>
+      <button class="quick-btn" onclick="sendQuick('Home collection available?')">🏠 Home Collection</button>
+      <button class="quick-btn" onclick="sendQuick('I feel tired and weak')">😴 Fatigue?</button>
+      <button class="quick-btn" onclick="sendQuick('Is the lab NABL accredited?')">✅ NABL</button>
+      <button class="quick-btn" onclick="sendQuick('How to book')">📅 Booking</button>
+    </div>
+    <div class="chat-input-row">
+      <textarea class="chat-input" id="chatInput" rows="1"
+        placeholder="Ask Dr. Avi anything..."
+        onkeydown="chatKeyDown(event)"></textarea>
+      <button class="chat-mic" id="micBtn" onclick="toggleMic()" title="Voice input">🎤</button>
+      <button class="chat-send" onclick="sendChatMessage()" title="Send">➤</button>
+    </div>
+  </div>
+</div>
+
+<!-- Audio player for TTS -->
+<audio id="ttsAudio" style="display:none;"></audio>
+
+<script src="/static/js/app.js"></script>
+<script src="/static/js/chatbot.js"></script>
+<script src="/static/js/booking.js"></script>
+</body>
+</html>
