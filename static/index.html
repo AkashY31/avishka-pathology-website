@@ -7,9 +7,24 @@
   <meta name="description" content="Avishka Pathology Lab & ECG, Azamgarh. Fully ultramodern computerized lab. Blood tests, thyroid, ECG, vitamins and more. Founded by Dr. Aman Yadav (Vikas)." />
   <link rel="icon" type="image/png" href="/static/assets/logo.png" />
   <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
 </head>
 <body>
+
+<!-- Scroll Progress Bar -->
+<div id="scrollProgress" class="scroll-progress"></div>
+
+<!-- Page Loader -->
+<div id="pageLoader" class="page-loader">
+  <div class="loader-inner">
+    <svg viewBox="0 0 44 44" width="64" height="64">
+      <polygon points="22,3 42,40 2,40" fill="#C0272D"/>
+      <text x="22" y="34" text-anchor="middle" fill="white" font-family="Poppins,sans-serif" font-weight="900" font-size="18">A</text>
+    </svg>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+</div>
 
 <!-- ═══════════════════ NAVBAR ═══════════════════ -->
 <nav class="navbar" id="navbar">
@@ -56,6 +71,7 @@
 
   <!-- Hero -->
   <section class="hero">
+  <canvas id="heroParticles" class="hero-canvas"></canvas>
     <div class="container">
       <div class="hero-grid">
 
@@ -154,7 +170,7 @@
   <!-- Why Choose Us -->
   <section class="section" style="background:var(--bg-alt);">
     <div class="container">
-      <div style="text-align:center; margin-bottom:0;">
+      <div style="text-align:center; margin-bottom:0;" data-aos="fade-up">
         <div class="tag">✨ Why Choose Us</div>
         <h2 class="section-title" style="margin-top:16px;">
           Healthcare You Can <span>Trust &amp; Afford</span>
@@ -164,23 +180,23 @@
           to deliver accurate diagnostics at prices that don't hurt your pocket.
         </p>
       </div>
-      <div class="features-grid reveal">
-        <div class="feature-card">
+      <div class="features-grid">
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
           <div class="feature-icon">💰</div>
           <div class="feature-title">Lowest Prices</div>
           <div class="feature-desc">Tests starting at just ₹80. No hidden charges. Transparent pricing — always.</div>
         </div>
-        <div class="feature-card">
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
           <div class="feature-icon">⚡</div>
           <div class="feature-title">Same Day Reports</div>
           <div class="feature-desc">Most reports delivered the same day. No waiting, no anxiety — just fast answers.</div>
         </div>
-        <div class="feature-card">
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
           <div class="feature-icon">🤖</div>
           <div class="feature-title">AI-Powered</div>
           <div class="feature-desc">Our AI assistant Dr. Avi helps you choose the right tests and guides your health journey 24/7.</div>
         </div>
-        <div class="feature-card">
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
           <div class="feature-icon">🔬</div>
           <div class="feature-title">Certified Lab</div>
           <div class="feature-desc">Fully ultramodern computerized equipment. Precision-calibrated for reliable, accurate results.</div>
@@ -209,43 +225,180 @@
   <!-- Testimonials -->
   <section class="section" style="background:var(--bg-alt);">
     <div class="container">
-      <div style="text-align:center; margin-bottom:0;">
+      <div style="text-align:center; margin-bottom:0;" data-aos="fade-up">
         <div class="tag">💬 Patient Stories</div>
         <h2 class="section-title" style="margin-top:16px;">What Our <span>Patients Say</span></h2>
       </div>
-      <div class="testimonials-grid reveal">
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Got my thyroid test done in the morning and had the report by afternoon. The staff was very helpful and the price was much lower than other labs in Azamgarh."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">RK</div>
-            <div>
-              <div class="author-name">Ramesh Kumar</div>
-              <div class="author-loc">📍 Martinganj, Azamgarh</div>
+      <div class="testimonial-carousel-wrap" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-track" id="testimonialTrack">
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p class="testimonial-text">"Got my thyroid test done in the morning and had the report by afternoon. The staff was very helpful and the price was much lower than other labs in Azamgarh."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">RK</div>
+                <div>
+                  <div class="author-name">Ramesh Kumar</div>
+                  <div class="author-loc">📍 Martinganj, Azamgarh</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p class="testimonial-text">"The AI chatbot helped me understand which tests I needed for my symptoms. Booked the appointment online and everything was smooth. Highly recommend!"</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">PS</div>
+                <div>
+                  <div class="author-name">Priya Singh</div>
+                  <div class="author-loc">📍 Azamgarh City</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p class="testimonial-text">"Best pathology lab in the area. Dr. Aman Yadav is very knowledgeable and the team is professional. CBC and sugar test at the most affordable price!"</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">AM</div>
+                <div>
+                  <div class="author-name">Abdul Majid</div>
+                  <div class="author-loc">📍 Mahuja, Azamgarh</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p class="testimonial-text">"Excellent service! Home collection was on time and the report was very detailed. Dr. Avi's AI chat feature is amazing for understanding test results."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">SK</div>
+                <div>
+                  <div class="author-name">Sunita Kumari</div>
+                  <div class="author-loc">📍 Phulpur, Azamgarh</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"The AI chatbot helped me understand which tests I needed for my symptoms. Booked the appointment online and everything was smooth. Highly recommend!"</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">PS</div>
-            <div>
-              <div class="author-name">Priya Singh</div>
-              <div class="author-loc">📍 Azamgarh City</div>
-            </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" onclick="moveTestimonial(-1)" aria-label="Previous">&#8592;</button>
+          <div class="carousel-dots" id="carouselDots">
+            <button class="dot active" onclick="goToTestimonial(0)"></button>
+            <button class="dot" onclick="goToTestimonial(1)"></button>
+            <button class="dot" onclick="goToTestimonial(2)"></button>
+            <button class="dot" onclick="goToTestimonial(3)"></button>
           </div>
+          <button class="carousel-btn" onclick="moveTestimonial(1)" aria-label="Next">&#8594;</button>
         </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Best pathology lab in the area. Dr. Aman Yadav is very knowledgeable and the team is professional. CBC and sugar test at the most affordable price!"</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">AM</div>
-            <div>
-              <div class="author-name">Abdul Majid</div>
-              <div class="author-loc">📍 Mahuja, Azamgarh</div>
-            </div>
-          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section how-it-works-section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:0;" data-aos="fade-up">
+        <div class="tag">⚡ Simple Process</div>
+        <h2 class="section-title" style="margin-top:16px;">How It <span>Works</span></h2>
+        <p class="section-subtitle" style="margin:0 auto;">
+          From booking to results — 4 simple steps, zero hassle.
+        </p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="step-num">01</div>
+          <div class="step-icon-wrap">📅</div>
+          <h3 class="step-title">Book Online</h3>
+          <p class="step-desc">Choose your tests, fill in your details, and pick a time slot — all in under 2 minutes.</p>
+        </div>
+        <div class="step-connector" data-aos="fade-right" data-aos-delay="80"></div>
+        <div class="step-card" data-aos="fade-up" data-aos-delay="120">
+          <div class="step-num">02</div>
+          <div class="step-icon-wrap">🏠</div>
+          <h3 class="step-title">Home Collection</h3>
+          <p class="step-desc">Our trained phlebotomist visits your doorstep at your chosen time for sample collection.</p>
+        </div>
+        <div class="step-connector" data-aos="fade-right" data-aos-delay="200"></div>
+        <div class="step-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="step-num">03</div>
+          <div class="step-icon-wrap">🔬</div>
+          <h3 class="step-title">Lab Processing</h3>
+          <p class="step-desc">Samples processed in our ultramodern computerized lab with precision-calibrated equipment.</p>
+        </div>
+        <div class="step-connector" data-aos="fade-right" data-aos-delay="320"></div>
+        <div class="step-card" data-aos="fade-up" data-aos-delay="360">
+          <div class="step-num">04</div>
+          <div class="step-icon-wrap">📊</div>
+          <h3 class="step-title">Get Your Report</h3>
+          <p class="step-desc">Receive your detailed report the same day — digitally or at our lab. Dr. Avi explains results 24/7.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" style="background:var(--bg-alt);">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:48px;" data-aos="fade-up">
+        <div class="tag">❓ FAQ</div>
+        <h2 class="section-title" style="margin-top:16px;">Frequently Asked <span>Questions</span></h2>
+        <p class="section-subtitle" style="margin:0 auto;">
+          Everything you need to know. Can't find the answer? Call or chat with Dr. Avi.
+        </p>
+      </div>
+      <div class="faq-list" id="faqList" data-aos="fade-up" data-aos-delay="100">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>What tests are available at Avishka Pathology?</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">We offer 13+ diagnostic tests including CBC, blood sugar (fasting/PP/random), lipid profile, thyroid (T3, T4, TSH), liver function, kidney function, vitamin D, vitamin B12, HbA1c, ECG, and urine analysis. We also offer a Full Body Health Package at just ₹1,999.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>Do you offer home sample collection?</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">Yes! We provide home sample collection in Azamgarh and surrounding areas. Book online or call 7355230710 and our trained phlebotomist will visit at your preferred time.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>How long does it take to get reports?</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">Most tests — including CBC, blood sugar, lipid profile, LFT, KFT, HbA1c, and ECG — are delivered the same day. Vitamin D and B12 may take 1–2 days. You'll receive your report digitally or at the lab.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>What are your working hours?</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">We are open 7 days a week, Monday to Sunday, from 7:00 AM to 8:00 PM. Home collection is available by appointment — call us to schedule.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>How do I book an appointment?</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">3 ways: (1) Use the online booking form on this website, (2) Chat with Dr. Avi AI assistant for guided booking, or (3) Call/WhatsApp 7355230710. Our team confirms your slot within 2 hours.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>Do I need to fast before tests?</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">It depends on the test. Blood Sugar Fasting and Lipid Profile require 8–12 hours fasting. Most others like CBC, thyroid, and kidney function don't require fasting. Dr. Avi will guide you on preparation when you book.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>What payment methods do you accept?</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">We accept cash at the lab, PhonePe, Google Pay, Paytm, and all UPI payments. Advance online payment is optional — you can also pay at the time of visit.</div>
         </div>
       </div>
     </div>
@@ -888,6 +1041,11 @@
 
 
 <!-- ═══════════════════ CHATBOT WIDGET ═══════════════════ -->
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/917355230710" class="whatsapp-fab" target="_blank" rel="noopener" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 0C5.373 0 0 5.373 0 12c0 2.117.555 4.103 1.523 5.832L0 24l6.335-1.498A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 01-5.003-1.371l-.36-.213-3.76.888.936-3.649-.233-.374A9.774 9.774 0 012.182 12C2.182 6.57 6.569 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
+
 <button class="chat-fab" id="chatFab" onclick="toggleChat()" title="Talk to Dr. Avi / Close">
   <span id="chatFabIcon">🤖</span>
 </button>
@@ -936,5 +1094,6 @@
 <script src="/static/js/app.js"></script>
 <script src="/static/js/chatbot.js"></script>
 <script src="/static/js/booking.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>

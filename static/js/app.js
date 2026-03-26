@@ -161,3 +161,119 @@ function filterTests(category, btn) {
 
 // ── Init ─────────────────────────────────────────────────────
 renderHomePage();
+
+// ── AOS Init ─────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof AOS !== 'undefined') {
+    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
+  }
+});
+
+// ── Page Loader ───────────────────────────────────────────────
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const loader = document.getElementById('pageLoader');
+    if (loader) loader.classList.add('hidden');
+  }, 900);
+});
+
+// ── Scroll Progress Bar ───────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const scrollBar = document.getElementById('scrollProgress');
+  if (!scrollBar) return;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+  scrollBar.style.width = scrolled + '%';
+}, { passive: true });
+
+// ── FAQ Accordion ─────────────────────────────────────────────
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  // Open clicked if it was closed
+  if (!isOpen) item.classList.add('open');
+}
+
+// ── Testimonial Carousel ──────────────────────────────────────
+let testimonialIdx = 0;
+let testimonialTimer = null;
+const TESTIMONIAL_DELAY = 4500;
+
+function goToTestimonial(idx) {
+  const track = document.getElementById('testimonialTrack');
+  if (!track) return;
+  const slides = track.querySelectorAll('.testimonial-slide');
+  testimonialIdx = (idx + slides.length) % slides.length;
+  track.style.transform = `translateX(-${testimonialIdx * 100}%)`;
+  document.querySelectorAll('.carousel-dots .dot').forEach((d, i) => {
+    d.classList.toggle('active', i === testimonialIdx);
+  });
+}
+
+function moveTestimonial(dir) {
+  resetTestimonialTimer();
+  goToTestimonial(testimonialIdx + dir);
+}
+
+function startTestimonialTimer() {
+  testimonialTimer = setInterval(() => {
+    goToTestimonial(testimonialIdx + 1);
+  }, TESTIMONIAL_DELAY);
+}
+
+function resetTestimonialTimer() {
+  clearInterval(testimonialTimer);
+  startTestimonialTimer();
+}
+
+// Start auto-rotate after DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('testimonialTrack')) startTestimonialTimer();
+});
+
+// ── Hero Canvas Particles ─────────────────────────────────────
+(function initHeroParticles() {
+  const canvas = document.getElementById('heroParticles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let W, H;
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  function randomParticle() {
+    return {
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 2.5 + 0.5,
+      dx: (Math.random() - 0.5) * 0.4,
+      dy: (Math.random() - 0.5) * 0.4,
+      alpha: Math.random() * 0.4 + 0.1,
+    };
+  }
+
+  for (let i = 0; i < 70; i++) particles.push(randomParticle());
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0,180,216,${p.alpha})`;
+      ctx.fill();
+      p.x += p.dx;
+      p.y += p.dy;
+      if (p.x < 0 || p.x > W) p.dx *= -1;
+      if (p.y < 0 || p.y > H) p.dy *= -1;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
